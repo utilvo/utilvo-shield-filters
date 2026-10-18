@@ -3,7 +3,7 @@
 **Official ABP 2.0 / uBlock Origin / AdGuard Network Filter List & Rule Parser SDK**  
 Maintained by **[Utilvo](https://utilvo.com)** • Official Extension Hub: **[https://utilvo.com/shield](https://utilvo.com/shield)**
 
-[![DOI: Harvard Dataverse](https://img.shields.io/badge/DOI-10.7910%2FDVN%2F2TBIJV-blue)](https://doi.org/10.7910/DVN/2TBIJV)
+[![DOI: Zenodo](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22975427-blue)](https://doi.org/10.5281/zenodo.22975427)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Filter Rules](https://img.shields.io/badge/Rules-19%2C980%2B%20ABP%202.0-16a34a)](https://utilvo.com/filters/utilvo-shield-filters.txt)
 
@@ -11,7 +11,7 @@ Maintained by **[Utilvo](https://utilvo.com)** • Official Extension Hub: **[ht
 
 ## Overview
 
-**Utilvo Shield Filters** is a curated network-level blocklist (~19,980 rules in standard `[Adblock Plus 2.0]` syntax) and zero-dependency JavaScript/Python parser library engineered to block:
+**Utilvo Shield Filters** is a curated network-level blocklist (~19,980 rules in standard `[Adblock Plus 2.0]` syntax) and zero-dependency JavaScript/Python/Go parser library engineered to block:
 
 - Third-party ad networks and aggressive popunder redirect chains
 - Malvertising gateways, phishing domains, and ClickFix fake-CAPTCHA traps
@@ -31,7 +31,7 @@ All rules are scoped with `$third-party,domain=~youtube.com` so first-party web 
 | **Mirror Raw Filter List** | `https://utilvo.com/shield/filters.txt` |
 | **Chrome Web Store Extension** | [Utilvo Shield for Chrome](https://chromewebstore.google.com/detail/utilvo-shield/hafpojbddmohoboonogiplgmbjcekkkc) |
 | **Mozilla Firefox Add-on** | [Utilvo Shield for Firefox](https://addons.mozilla.org/en-US/firefox/addon/utilvo-shield/) |
-| **Harvard Dataverse Archival DOI** | [doi:10.7910/DVN/2TBIJV](https://doi.org/10.7910/DVN/2TBIJV) |
+| **Zenodo Archival DOI** | [doi:10.5281/zenodo.22975427](https://doi.org/10.5281/zenodo.22975427) |
 
 ---
 

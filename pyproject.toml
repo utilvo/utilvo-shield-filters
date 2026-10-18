@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "utilvo-shield-filters"
-version = "1.0.0"
+version = "1.0.2"
 description = "Official ABP/uBlock Origin network filter parser and blocklist SDK for Utilvo Shield (https://utilvo.com/shield)."
 readme = "README.md"
 license = { text = "MIT" }
@@ -42,7 +42,7 @@ FilterList = "https://utilvo.com/filters/utilvo-shield-filters.txt"
 Repository = "https://github.com/utilvo/utilvo-shield-filters"
 "Chrome Web Store" = "https://chromewebstore.google.com/detail/utilvo-shield/hafpojbddmohoboonogiplgmbjcekkkc"
 "Firefox Add-ons" = "https://addons.mozilla.org/en-US/firefox/addon/utilvo-shield/"
-"Harvard Dataverse DOI" = "https://doi.org/10.7910/DVN/2TBIJV"
+"Zenodo DOI" = "https://doi.org/10.5281/zenodo.22975427"
 
 [tool.setuptools.packages.find]
 where = ["."]

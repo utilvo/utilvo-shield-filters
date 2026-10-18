@@ -2,9 +2,9 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "Utilvo Shield Filters",
-  "identifier": "https://doi.org/10.7910/DVN/2TBIJV",
+  "identifier": "https://doi.org/10.5281/zenodo.22975427",
   "description": "Official network-level blocklist (~19,980 Adblock Plus 2.0 / uBlock Origin / AdGuard rules) and parser SDK maintained by the Utilvo Shield project (https://utilvo.com/shield) to block third-party ad networks, popunder redirect chains, trackers, and malvertising hosts.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "dateCreated": "2026-10-15",
   "datePublished": "2026-10-19",
   "dateModified": "2026-10-19",
@@ -16,7 +16,8 @@
   "programmingLanguage": [
     "JavaScript",
     "TypeScript",
-    "Python"
+    "Python",
+    "Go"
   ],
   "operatingSystem": [
     "Windows",

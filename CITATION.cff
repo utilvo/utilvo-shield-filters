@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "Utilvo Shield Filters: Network-Level Blocklist & ABP Rule Parser for Ad, Popunder, Tracker, and Malvertising Hosts"
 message: "If you use Utilvo Shield Filters or this software package in your research or security tooling, please cite it using the metadata below."
 type: software
-version: 1.0.0
+version: 1.0.2
 date-released: "2026-10-19"
 license: MIT
 url: "https://utilvo.com/shield"
@@ -29,11 +29,11 @@ authors:
     website: "https://utilvo.com"
 identifiers:
   - type: doi
-    value: "10.7910/DVN/2TBIJV"
-    description: "Harvard Dataverse Archival Dataset DOI"
-  - type: doi
     value: "10.5281/zenodo.22975427"
     description: "Zenodo Archival Monograph DOI"
+  - type: doi
+    value: "10.6084/m9.figshare.34003734"
+    description: "Figshare Archival Research DOI"
   - type: url
     value: "https://utilvo.com/shield"
     description: "Utilvo Shield Official Homepage"
