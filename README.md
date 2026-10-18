@@ -1,96 +1,79 @@
-# Utilvo Shield Filters (`utilvo-shield-filters`)
+# utilvo-shield-filters
 
-**Official ABP 2.0 / uBlock Origin / AdGuard Network Filter List & Rule Parser SDK**  
-Maintained by **[Utilvo](https://utilvo.com)** • Official Extension Hub: **[https://utilvo.com/shield](https://utilvo.com/shield)**
+Zero-dependency JavaScript, TypeScript, Python, and Go parser for Adblock Plus 2.0 (`[Adblock Plus 2.0]`) and uBlock Origin static network filter rules.
 
-[![DOI: Zenodo](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22975427-blue)](https://doi.org/10.5281/zenodo.22975427)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Filter Rules](https://img.shields.io/badge/Rules-19%2C980%2B%20ABP%202.0-16a34a)](https://utilvo.com/filters/utilvo-shield-filters.txt)
+## Features
 
----
+- Parse standard `||domain^$third-party,domain=~example.com` network rules
+- Extract target hostnames, `$third-party` modifiers, and excluded context domains
+- Fast parent-domain suffix matching (`Set`-backed lookup) for hostname verification
+- Built-in fetcher for the `utilvo-shield-filters.txt` blocklist
 
-## Overview
+## Installation
 
-**Utilvo Shield Filters** is a curated network-level blocklist (~19,980 rules in standard `[Adblock Plus 2.0]` syntax) and zero-dependency JavaScript/Python/Go parser library engineered to block:
-
-- Third-party ad networks and aggressive popunder redirect chains
-- Malvertising gateways, phishing domains, and ClickFix fake-CAPTCHA traps
-- Cross-site tracking beacons and RTB fingerprinting endpoints
-
-All rules are scoped with `$third-party,domain=~youtube.com` so first-party web applications and video playback continue working without interruption.
-
----
-
-## Direct Filter List Subscription URLs
-
-| Resource | Official Endpoint |
-| :--- | :--- |
-| **Utilvo Shield Official Page** | **[https://utilvo.com/shield](https://utilvo.com/shield)** |
-| **Utilvo Main Platform** | **[https://utilvo.com](https://utilvo.com)** |
-| **Primary Raw Filter List (ABP 2.0)** | `https://utilvo.com/filters/utilvo-shield-filters.txt` |
-| **Mirror Raw Filter List** | `https://utilvo.com/shield/filters.txt` |
-| **Chrome Web Store Extension** | [Utilvo Shield for Chrome](https://chromewebstore.google.com/detail/utilvo-shield/hafpojbddmohoboonogiplgmbjcekkkc) |
-| **Mozilla Firefox Add-on** | [Utilvo Shield for Firefox](https://addons.mozilla.org/en-US/firefox/addon/utilvo-shield/) |
-| **Zenodo Archival DOI** | [doi:10.5281/zenodo.22975427](https://doi.org/10.5281/zenodo.22975427) |
-
----
-
-## Installation & Usage
-
-### JavaScript / TypeScript (Node.js & Browser)
+### Node.js
 
 ```bash
 npm install utilvo-shield-filters
 ```
 
 ```javascript
-const {
-  FILTER_LIST_URL,
-  SHIELD_HOMEPAGE,
-  parseAbpRule,
-  isHostBlocked,
-  fetchFilterHosts
-} = require("utilvo-shield-filters");
+const { parseAbpRule, isHostBlocked, fetchFilterHosts } = require("utilvo-shield-filters");
 
-async function main() {
-  const blockedSet = await fetchFilterHosts();
-  console.log("Loaded domains:", blockedSet.size);
-  console.log("Check tracker:", isHostBlocked("sub.01counter.com", blockedSet)); // true
-}
+// Parse a single rule
+const rule = parseAbpRule("||01counter.com^$third-party,domain=~youtube.com");
+// => { domain: '01counter.com', thirdParty: true, excludedDomains: ['youtube.com'] }
 
-main();
+// Match a hostname against a Set of rules
+const blocked = new Set(["01counter.com"]);
+console.log(isHostBlocked("tracker.01counter.com", blocked)); // true
 ```
 
-### Python (`pip`)
+### Python
 
 ```bash
 pip install utilvo-shield-filters
 ```
 
 ```python
-from utilvo_shield_filters import (
-    FILTER_LIST_URL,
-    SHIELD_HOMEPAGE,
-    fetch_filter_hosts,
-    is_host_blocked,
-)
+from utilvo_shield_filters import parse_abp_rule, is_host_blocked
 
-hosts = fetch_filter_hosts()
-print(f"Loaded {len(hosts)} blocked domains from {SHIELD_HOMEPAGE}")
-print(is_host_blocked("01counter.com", hosts))  # True
+rule = parse_abp_rule("||01counter.com^$third-party,domain=~youtube.com")
+print(rule)
+# {'domain': '01counter.com', 'third_party': True, 'excluded_domains': ['youtube.com']}
+
+blocked = {"01counter.com"}
+print(is_host_blocked("sub.01counter.com", blocked))  # True
 ```
 
----
+### Go
 
-## Academic Citation
+```bash
+go get github.com/utilvo/utilvo-shield-filters@latest
+```
 
-If you reference **Utilvo Shield Filters** or our client-side security architecture in academic work, please see [`CITATION.cff`](./CITATION.cff) and [`codemeta.json`](./codemeta.json):
+```go
+package main
 
-> Ayoub, I. (2026). *Privacy-Preserving Client-Side Information Processing: A Browser-Based Architecture for Local Data Analysis and Secure File Handling*. Zenodo. https://doi.org/10.5281/zenodo.22975427
+import (
+	"fmt"
+	shieldfilters "github.com/utilvo/utilvo-shield-filters"
+)
 
----
+func main() {
+	domain, ok := shieldfilters.ParseAbpDomain("||01counter.com^$third-party")
+	if ok {
+		fmt.Println(domain) // 01counter.com
+	}
+}
+```
+
+## API Reference
+
+- `parseAbpRule(line)` / `parse_abp_rule(line)` / `ParseAbpDomain(line)`: Parses a single ABP 2.0 rule line and returns the normalized lowercase domain and rule options. Returns `null` / `None` for comments (`!`), headers (`[Adblock Plus 2.0]`), or cosmetic filters.
+- `isHostBlocked(hostname, blockedSet)` / `is_host_blocked(hostname, blocked_set)`: Checks whether `hostname` or any of its parent registrable labels exist in `blockedSet`.
+- `fetchFilterHosts(url?)` / `fetch_filter_hosts(url?)`: Downloads and parses a remote ABP filter list into a `Set` of domain strings.
 
 ## License
 
-Code licensed under the **MIT License**. Filter list rules licensed under **CC BY-SA 4.0**.  
-© 2026 [Utilvo](https://utilvo.com) — Privacy-First Client-Side Web Utilities.
+Code is licensed under the [MIT License](./LICENSE). Filter list rules are licensed under CC BY-SA 4.0.
