@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+title: "Utilvo Shield Filters: Network-Level Blocklist & ABP Rule Parser for Ad, Popunder, Tracker, and Malvertising Hosts"
+message: "If you use Utilvo Shield Filters or this software package in your research or security tooling, please cite it using the metadata below."
+type: software
+version: 1.0.0
+date-released: "2026-10-19"
+license: MIT
+url: "https://utilvo.com/shield"
+repository-code: "https://github.com/utilvo/utilvo-shield-filters"
+repository-artifact: "https://utilvo.com/filters/utilvo-shield-filters.txt"
+abstract: >-
+  Utilvo Shield Filters is a curated network-level blocklist (~19,980 rules in standard Adblock Plus 2.0 / uBlock Origin / AdGuard syntax) and companion parser library maintained by the Utilvo project (https://utilvo.com). It blocks third-party ad networks, popunder redirect chains, tracking beacons, ClickFix fake-CAPTCHA traps, and malvertising domains while preserving first-party site functionality.
+keywords:
+  - adblock
+  - ublock-origin
+  - adguard
+  - filter-list
+  - browser-security
+  - malvertising
+  - privacy
+  - utilvo
+authors:
+  - family-names: Ayoub
+    given-names: Islam
+    orcid: "https://orcid.org/0009-0002-1503-5639"
+    affiliation: "Utilvo"
+    website: "https://utilvo.com"
+  - name: "Utilvo"
+    website: "https://utilvo.com"
+identifiers:
+  - type: doi
+    value: "10.7910/DVN/2TBIJV"
+    description: "Harvard Dataverse Archival Dataset DOI"
+  - type: doi
+    value: "10.5281/zenodo.22975427"
+    description: "Zenodo Archival Monograph DOI"
+  - type: url
+    value: "https://utilvo.com/shield"
+    description: "Utilvo Shield Official Homepage"
+references:
+  - type: article
+    title: "Privacy-Preserving Client-Side Information Processing: A Browser-Based Architecture for Local Data Analysis and Secure File Handling"
+    authors:
+      - family-names: Ayoub
+        given-names: Islam
+        orcid: "https://orcid.org/0009-0002-1503-5639"
+    year: 2026
+    doi: "10.5281/zenodo.22975427"
+    url: "https://utilvo.com/downloads/privacy-preserving-client-side-information-processing.pdf"
