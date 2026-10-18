@@ -1,7 +1,7 @@
 {
   "name": "utilvo-shield-filters",
   "version": "1.0.0",
-  "description": "Official ABP/uBlock Origin network filter parser and blocklist utilities for Utilvo Shield (https://utilvo.com/shield) — blocking ad, popunder, tracker, phishing, and malvertising hosts.",
+  "description": "Zero-dependency parser and domain matcher for Adblock Plus 2.0 and uBlock Origin static network filter rules.",
   "main": "index.js",
   "types": "index.d.ts",
   "homepage": "https://utilvo.com/shield",
@@ -10,29 +10,20 @@
     "url": "git+https://github.com/utilvo/utilvo-shield-filters.git"
   },
   "bugs": {
-    "url": "https://github.com/utilvo/utilvo-shield-filters/issues",
-    "email": "utilvo.com@gmail.com"
+    "url": "https://github.com/utilvo/utilvo-shield-filters/issues"
   },
   "keywords": [
     "adblock",
     "ublock-origin",
-    "adguard",
     "filterlist",
     "blocklist",
-    "popunder-blocker",
-    "malvertising",
-    "phishing-protection",
-    "privacy",
-    "utilvo",
-    "utilvo-shield"
+    "parser"
   ],
   "author": "Utilvo <utilvo.com@gmail.com> (https://utilvo.com)",
   "license": "MIT",
   "files": [
     "index.js",
     "index.d.ts",
-    "CITATION.cff",
-    "codemeta.json",
     "README.md",
     "LICENSE"
   ],
