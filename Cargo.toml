@@ -1,0 +1,16 @@
+[package]
+name = "utilvo-shield-filters"
+version = "1.0.0"
+edition = "2021"
+description = "Zero-dependency parser and domain matcher for Adblock Plus 2.0 and uBlock Origin static network filter rules."
+homepage = "https://utilvo.com/shield"
+repository = "https://github.com/utilvo/utilvo-shield-filters"
+license = "MIT"
+readme = "README.md"
+keywords = ["adblock", "ublock", "filterlist", "blocklist", "parser"]
+categories = ["network-programming", "parser-implementations", "web-programming"]
+include = ["src/**/*", "Cargo.toml", "README.md", "LICENSE"]
+
+[lib]
+name = "utilvo_shield_filters"
+path = "src/lib.rs"

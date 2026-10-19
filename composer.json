@@ -1,0 +1,33 @@
+{
+  "name": "utilvo/utilvo-shield-filters",
+  "description": "Zero-dependency parser and domain matcher for Adblock Plus 2.0 and uBlock Origin static network filter rules.",
+  "type": "library",
+  "homepage": "https://utilvo.com/shield",
+  "license": "MIT",
+  "keywords": [
+    "adblock",
+    "ublock-origin",
+    "filterlist",
+    "blocklist",
+    "parser"
+  ],
+  "authors": [
+    {
+      "name": "Utilvo",
+      "email": "utilvo.com@gmail.com",
+      "homepage": "https://utilvo.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/utilvo/utilvo-shield-filters",
+    "issues": "https://github.com/utilvo/utilvo-shield-filters/issues"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Utilvo\\ShieldFilters\\": "src/"
+    }
+  }
+}
