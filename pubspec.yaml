@@ -1,0 +1,14 @@
+name: utilvo_shield_filters
+description: Zero-dependency parser and domain suffix matcher for Adblock Plus 2.0 and uBlock Origin static network filter rules.
+version: 1.0.0
+homepage: https://utilvo.com/shield
+repository: https://github.com/utilvo/utilvo-shield-filters
+issue_tracker: https://github.com/utilvo/utilvo-shield-filters/issues
+topics:
+  - security
+  - privacy
+  - network
+  - parser
+
+environment:
+  sdk: ^3.0.0
