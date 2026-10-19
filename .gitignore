@@ -4,3 +4,6 @@ build/
 __pycache__/
 node_modules/
 *.tgz
+
+target/
+Cargo.lock
