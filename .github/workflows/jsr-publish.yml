@@ -16,4 +16,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
       - name: Publish package to JSR.io
-        run: timeout 90s deno publish --allow-dirty --log-level=debug
+        run: deno publish --allow-dirty
