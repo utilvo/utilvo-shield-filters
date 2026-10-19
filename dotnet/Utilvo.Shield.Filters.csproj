@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Utilvo.Shield.Filters</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Utilvo</Authors>
+    <Company>Utilvo</Company>
+    <Product>Utilvo Shield Filters</Product>
+    <Description>Zero-dependency parser and domain suffix matcher for Adblock Plus 2.0 and uBlock Origin static network filter rules.</Description>
+    <PackageProjectUrl>https://utilvo.com/shield</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/utilvo/utilvo-shield-filters</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>adblock;ublock-origin;adguard;filterlist;security;privacy;parser;utilvo</PackageTags>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

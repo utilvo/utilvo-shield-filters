@@ -1,0 +1,28 @@
+name: Publish to NuGet
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Pack NuGet package
+        run: dotnet pack dotnet/Utilvo.Shield.Filters.csproj -c Release -o ./nupkg
+      - name: Login to NuGet Trusted Publishing
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: utilvo
+      - name: Push to NuGet.org
+        run: dotnet nuget push ./nupkg/*.nupkg -k ${{ steps.login.outputs.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
