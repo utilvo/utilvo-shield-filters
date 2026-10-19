@@ -1,0 +1,32 @@
+{
+  "title": "utilvo-shield-filters: Zero-Dependency ABP 2.0 Network Filter Rule Parser & Domain Matcher",
+  "description": "Multi-language open-source parser and domain suffix matcher for Adblock Plus 2.0 and uBlock Origin static network filter lists.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Ayoub, Islam",
+      "affiliation": "Utilvo",
+      "orcid": "0009-0002-1503-5639"
+    }
+  ],
+  "keywords": [
+    "adblock",
+    "ublock-origin",
+    "filterlist",
+    "network-security",
+    "parser"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://utilvo.com/shield",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/utilvo/utilvo-shield-filters",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
