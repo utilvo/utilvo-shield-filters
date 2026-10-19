@@ -1,0 +1,23 @@
+name: Publish Docker Container
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-ghcr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to GitHub Container Registry (ghcr.io)
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u utilvo --password-stdin
+      - name: Build and push OCI image to ghcr.io
+        run: |
+          docker build -t ghcr.io/utilvo/utilvo-shield-filters:latest -t ghcr.io/utilvo/utilvo-shield-filters:1.1.0 .
+          docker push ghcr.io/utilvo/utilvo-shield-filters:latest
+          docker push ghcr.io/utilvo/utilvo-shield-filters:1.1.0
