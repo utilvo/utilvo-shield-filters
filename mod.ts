@@ -1,12 +1,3 @@
-/**
- * Zero-dependency parser and domain matcher for Adblock Plus 2.0 (`[Adblock Plus 2.0]`)
- * and uBlock Origin static network filter rules.
- *
- * Official project documentation: {@link https://utilvo.com/shield}
- *
- * @module
- */
-
 /** Primary raw filter list endpoint maintained by Utilvo Shield. */
 export const FILTER_LIST_URL: string = "https://utilvo.com/filters/utilvo-shield-filters.txt";
 
@@ -18,13 +9,19 @@ export const SHIELD_HOMEPAGE: string = "https://utilvo.com/shield";
 
 /** Parsed representation of an Adblock Plus 2.0 network rule. */
 export interface ParsedAbpRule {
+  /** Normalized lowercase hostname targeted by the filter rule. */
   domain: string;
+  /** Whether the `$third-party` or `$3p` modifier is enabled on the rule. */
   thirdParty: boolean;
+  /** List of excluded parent domains specified via `domain=~example.com`. */
   excludedDomains: string[];
 }
 
 /**
  * Parses a single Adblock Plus 2.0 network rule line (e.g. `||01counter.com^$third-party,domain=~youtube.com`).
+ *
+ * @param line Raw filter rule line from an ABP/uBO filter list.
+ * @returns A {@link ParsedAbpRule} object, or `null` if the line is a comment or unsupported rule.
  */
 export function parseAbpRule(line: string): ParsedAbpRule | null {
   if (!line || typeof line !== "string") return null;
@@ -60,6 +57,10 @@ export function parseAbpRule(line: string): ParsedAbpRule | null {
 
 /**
  * Checks whether a hostname or any of its parent registrable domains exist in `blockedHosts`.
+ *
+ * @param hostname Hostname to test (e.g. `"sub.tracker.example.com"`).
+ * @param blockedHosts Set of normalized blocked domains.
+ * @returns `true` if the hostname or any parent domain matches `blockedHosts`.
  */
 export function isHostBlocked(hostname: string, blockedHosts: Set<string>): boolean {
   if (!hostname || !blockedHosts) return false;
@@ -73,6 +74,9 @@ export function isHostBlocked(hostname: string, blockedHosts: Set<string>): bool
 
 /**
  * Fetches a remote ABP 2.0 filter list and returns a Set of normalized blocked hostnames.
+ *
+ * @param url Optional custom filter list URL (defaults to {@link FILTER_LIST_URL}).
+ * @returns A Promise resolving to a `Set<string>` of blocked domains.
  */
 export async function fetchFilterHosts(url: string = FILTER_LIST_URL): Promise<Set<string>> {
   const response = await fetch(url);
